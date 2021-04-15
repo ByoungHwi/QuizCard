@@ -18,8 +18,7 @@ final class ListCellNode: RoundCornerCellNode {
     
     lazy var titleTextNode: ASTextNode = {
         let node = ASTextNode()
-        node.truncationMode = .byTruncatingTail
-        node.maximumNumberOfLines = 1
+        node.maximumNumberOfLines = 0
         return node
     }()
 
@@ -36,7 +35,7 @@ final class ListCellNode: RoundCornerCellNode {
     }
     
     override func contentsNodeLayoutSpec() -> ASLayoutSpec {
-        titleTextNode.style.flexShrink = 1
+        titleTextNode.style.flexGrow = 1
         let insetLayoutSpec = ASInsetLayoutSpec(insets: Const.titleTextNodeInsets,
                                            child: titleTextNode)
         
